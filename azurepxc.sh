@@ -114,7 +114,6 @@ add_to_fstab() {
 }
 
 configure_disks() {
-        sed -i -e "s/https/http/g" azurepxc.sh 
 	ls "${MOUNTPOINT}"
 	if [ ${?} -eq 0 ]
 	then 
@@ -319,6 +318,7 @@ then
     echo "unsupported operating system"
     exit 1 
 else
+    sed -i -e "s/https/http/g" /etc/yum.repos.d/epel.repo
     configure_network
     configure_disks
     configure_mysql
