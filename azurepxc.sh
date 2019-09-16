@@ -114,6 +114,7 @@ add_to_fstab() {
 }
 
 configure_disks() {
+        sed -i -e "s/https/http/g" azurepxc.sh 
 	ls "${MOUNTPOINT}"
 	if [ ${?} -eq 0 ]
 	then 
